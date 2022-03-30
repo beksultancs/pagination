@@ -31,4 +31,15 @@ public class CarApi {
                                  @RequestParam int size) {
         return carService.findAll(PageRequest.of(page, size));
     }
+
+
+    // with criteria query
+    @GetMapping("/find/by")
+    public List<Car> findBy(@RequestParam(required = false) String model,
+                            @RequestParam(required = false) String brand,
+                            @RequestParam(required = false) int page,
+                            @RequestParam(required = false) int size) {
+        return carService.findBy(model, brand, PageRequest.of(page, size));
+    }
+
 }
